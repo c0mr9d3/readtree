@@ -8,11 +8,11 @@
 Also you can compile:<br>
 <code>gcc readtree.c -o readtree</code><br>
 And run:<br>
-<code>./readtree <dir></code><br>
+<code>./readtree [dir]</code><br>
 Example:<br>
 <code>./readtree .</code>
 <h4>Help:</h4>
-       <code>./readtree</code> [options] <dir><br>
+       <code>./readtree</code> [options] [dir]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Options:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h help<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-s <size> ( > 0) size of file<br>
