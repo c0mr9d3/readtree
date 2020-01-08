@@ -9,10 +9,8 @@ Also you can compile:<br>
 <code>gcc readtree.c -o readtree</code><br>
 And run:<br>
 <code>./readtree <dir></code><br>
-<br>
 Example:<br>
 <code>./readtree .</code><br>
-<br>
 <h4>Help:</h4><br>
 Usage: readtree [options] <dir><br>
        Options:<br>
