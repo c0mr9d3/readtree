@@ -3,10 +3,10 @@
 <h3>Makefile:</h3>
 <code>make</code> - default: compile and run<br>
 <code>make run</code> - run program<br>
-<code>make compile</code> - compile program<br>
-<br>
+<code>make compile</code> - compile program<br><br>
+
 Also you can compile:<br>
-<code>gcc readtree.c -o readtree</code><br>
+<code>gcc readtree.c -o readtree</code><br><br>
 
 And run:<br>
 <code>./readtree [dir]</code><br>
