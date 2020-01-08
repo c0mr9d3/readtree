@@ -7,8 +7,10 @@
 
 Also you can compile:<br>
 <code>gcc readtree.c -o readtree</code><br>
+
 And run:<br>
 <code>./readtree [dir]</code><br>
+
 Example:<br>
 <code>./readtree .</code>
 <h4>Help:</h4>
