@@ -6,7 +6,7 @@
 <code>make compile</code> - compile program<br><br>
 
 Also you can compile:<br>
-<code>gcc readtree.c -o readtree</code><br><br>
+<code>gcc readtree.c -o readtree</code><br>
 
 And run:<br>
 <code>./readtree [dir]</code><br>
