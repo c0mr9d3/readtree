@@ -12,14 +12,14 @@ And run:<br>
 Example:<br>
 <code>./readtree .</code>
 <h4>Help:</h4><br>
-readtree [options] <dir><br>
+       <code>./readtree</code> [options] <dir><br>
        Options:<br>
-           *-h help<br>
-           *-s <size> ( > 0) size of file<br>
-           -f exclude FIFO<br>
-           -d exclude directory<br>
-           -b exclude block device<br>
-           -l exclude symlink<br>
-           -r exclude regular file<br>
-           -c exclude character device<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h help<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-s <size> ( > 0) size of file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-f exclude FIFO<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-d exclude directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-b exclude block device<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-l exclude symlink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-r exclude regular file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-c exclude character device<br>
 </p>
