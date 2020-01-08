@@ -10,9 +10,9 @@ Also you can compile:<br>
 And run:<br>
 <code>./readtree <dir></code><br>
 Example:<br>
-<code>./readtree .</code><br>
+<code>./readtree .</code>
 <h4>Help:</h4><br>
-Usage: readtree [options] <dir><br>
+readtree [options] <dir><br>
        Options:<br>
            -h help<br>
            -s <size> ( > 0) size of file<br>
