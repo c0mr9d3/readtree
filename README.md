@@ -1,6 +1,6 @@
 <p>This program recursive print files in directory.
 
-<h4>Makefile:</h4>
+<h3>Makefile:</h3>
 <code>make</code> - default: compile and run<br>
 <code>make run</code> - run program<br>
 <code>make compile</code> - compile program<br>
@@ -13,7 +13,7 @@ And run:<br>
 
 Example:<br>
 <code>./readtree .</code>
-<h4>Help:</h4>
+<h3>Help:</h3>
        <code>./readtree</code> [options] [dir]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Options:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h help<br>
