@@ -14,8 +14,8 @@ Example:<br>
 <h4>Help:</h4><br>
 readtree [options] <dir><br>
        Options:<br>
-           -h help<br>
-           -s <size> ( > 0) size of file<br>
+           *-h help<br>
+           *-s <size> ( > 0) size of file<br>
            -f exclude FIFO<br>
            -d exclude directory<br>
            -b exclude block device<br>
