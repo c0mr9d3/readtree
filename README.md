@@ -1,4 +1,4 @@
-<p>This program recursive print files in directory.
+<p>This program recursively print files in directory.
 
 <h3>Makefile:</h3>
 <code>make</code> - default: compile and run<br>
