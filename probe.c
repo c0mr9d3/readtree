@@ -24,7 +24,7 @@ char *path_alloc(void)
     return file_path;
 }
 
-int inspect_directory(char *dir_name, ssize_t file_size, file_types disable_count)
+int inspect_directory(char *dir_name)
 {
     if ( dir_name == NULL ) {
         fprintf(stderr, "inspect_directory: dir_name is NULL\n");
@@ -84,8 +84,7 @@ int inspect_directory(char *dir_name, ssize_t file_size, file_types disable_coun
     }
 
     if ( lstat(full_path_cur_dir, &checkdir) == 0 ) {
-        if ( CHECK_FILE_SIZE(checkdir.st_size, file_size) )
-            printf("\033[01;34mStart directory -> %s:\n", full_path_cur_dir);
+        printf("\033[01;34mStart directory -> %s:\n", full_path_cur_dir);
     } else {
         perror("lstat");
         free(full_path_cur_dir);
@@ -115,6 +114,10 @@ int inspect_directory(char *dir_name, ssize_t file_size, file_types disable_coun
             tmp_stack = next_dir_stack;
             next_dir_stack = next_dir_stack->next;
             free(tmp_stack);
+            
+            if ( tmp_stack == last_dir_stack )
+                last_dir_stack = NULL;
+
             printf("\033[01;34m%s (level %d):\n", full_path_cur_dir, file_level);
             continue;
         }
@@ -139,38 +142,28 @@ int inspect_directory(char *dir_name, ssize_t file_size, file_types disable_coun
 
         switch ( statbuf.st_mode & S_IFMT ) {
             case S_IFBLK:
-                if ( CHECK_FILE_SIZE(statbuf.st_size, file_size) && !disable_count.block ) {
-                    filetypes_array[block_iter]->count++;
-                    printf("\033[01;33m%s (Block)\n", file_info->d_name);
-                }
+                filetypes_array[block_iter]->count++;
+                printf("\033[01;33m%s (Block)\n", file_info->d_name);
                 break;
 
             case S_IFIFO:
-                if ( CHECK_FILE_SIZE(statbuf.st_size, file_size) && !disable_count.fifo ) {
-                    filetypes_array[fifo_iter]->count++;
-                    printf("\033[01;30m%s (FIFO)\n", file_info->d_name);
-                }
+                filetypes_array[fifo_iter]->count++;
+                printf("\033[01;30m%s (FIFO)\n", file_info->d_name);
                 break;
 
             case S_IFLNK:
-                if ( CHECK_FILE_SIZE(statbuf.st_size, file_size) && !disable_count.symlink ) {
-                    filetypes_array[symlink_iter]->count++;
-                    printf("\033[01;36m%s (Symlink)\n", file_info->d_name);
-                }
+                filetypes_array[symlink_iter]->count++;
+                printf("\033[01;36m%s (Symlink)\n", file_info->d_name);
                 break;
 
             case S_IFREG:
-                if ( CHECK_FILE_SIZE(statbuf.st_size, file_size) && !disable_count.file ) {
-                    filetypes_array[file_iter]->count++;
-                    printf("\033[01;39m%s (File)\n", file_info->d_name);
-                }
+                filetypes_array[file_iter]->count++;
+                printf("\033[01;39m%s (File)\n", file_info->d_name);
                 break;
 
             case S_IFCHR:
-                if ( CHECK_FILE_SIZE(statbuf.st_size, file_size) && !disable_count.character ) {
-                    filetypes_array[char_iter]->count++;
-                    printf("\033[01;32m%s (Char)\n", file_info->d_name);
-                }
+                filetypes_array[char_iter]->count++;
+                printf("\033[01;32m%s (Char)\n", file_info->d_name);
                 break;
 
             case S_IFDIR:
@@ -186,8 +179,7 @@ int inspect_directory(char *dir_name, ssize_t file_size, file_types disable_coun
                 break;
 
             default:
-                if ( CHECK_FILE_SIZE(statbuf.st_size, file_size) )
-                    printf("\033[01;31m%s (Unknown type)\n", file_info->d_name);
+                printf("\033[01;31m%s (Unknown type)\n", file_info->d_name);
                 break;
         }
 
@@ -198,7 +190,8 @@ int inspect_directory(char *dir_name, ssize_t file_size, file_types disable_coun
     free(target_file);
 
     for (i = 0; i < N_FILETYPES; i++) {
-        printf("%s: %zu\n", filetypes_array[i]->type_name, filetypes_array[i]->count);
+        if ( filetypes_array[i]->count )
+            printf("%s: %zu\n", filetypes_array[i]->type_name, filetypes_array[i]->count);
         free(filetypes_array[i]->type_name);
         free(filetypes_array[i]);
     }
