@@ -46,6 +46,7 @@ void clear_stack(stack_value *stack)
     temp = stack;
 
     while ( stack != NULL ) {
+        free(stack->dir_path);
         temp = stack;
         stack = stack->next;
         free(temp);
